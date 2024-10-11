@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wicks Studio Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <img src="ra.3e.png" alt="Profile Picture" class="profile-pic">
+                <div class="username">ra.3e</div>
+            </div>
+            <div class="menu">
+                <button class="menu-item cool-button" onclick="showSection('overview')">Overview</button>
+                <button class="menu-item cool-button" onclick="showSection('membership')">Membership <span class="new-badge">NEW</span></button>
+                <button class="menu-item cool-button" onclick="showSection('managePremium')">Manage Premium</button>
+                <button class="menu-item cool-button" onclick="showSection('manageServer')">Manage Server</button>
+                <button class="menu-item cool-button" onclick="showSection('creditsStore')">Credits Store</button>
+                <button class="menu-item cool-button" onclick="showSection('leaderboard')">Leaderboard</button>
+                <button class="menu-item cool-button" onclick="window.location.href='https://wicksbot.com/'">Others</button>
+                <button class="menu-item cool-button" onclick="window.open('https://discord.gg/tHTwJEmr', '_blank')">Support</button>
+                <button class="menu-item cool-button" onclick="translatePage()">Translate</button>
+                <button class="menu-item cool-button logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Overview Section -->
+            <div class="section active" id="overview">
+                <h1>Welcome to Wicks Studio</h1>
+                <p>Access your account overview, manage settings, and explore new features.</p>
+                <div class="info-box">
+                    <h2>Quick Stats</h2>
+                    <p>Membership: <span>Premium</span></p>
+                    <p>Credits: <span>150</span></p>
+                    <p>Last Login: <span>October 11, 2024</span></p>
+                </div>
+                <button class="cta-button cool-button" onclick="window.location.href='https://discord.com/oauth2/authorize?client_id=652505019920285707&scope=bot+applications.commands&permissions=8&redirect_uri=https%3A%2F%2Fwicksbot.com%2Fapi%2Fauth%2Fredirect&response_type=code'">Add to Server</button>
+            </div>
+
+            <!-- Membership Section -->
+            <div class="section" id="membership">
+                <h1>Upgrade Your Membership</h1>
+                <div class="membership-options">
+                    <div class="plan">
+                        <h2>Basic Plan</h2>
+                        <p>Access essential features with limited support and community access.</p>
+                        <p class="price">$5/month</p>
+                        <button class="cool-button" onclick="selectPlan('Basic')">Select Basic</button>
+                    </div>
+                    <div class="plan featured">
+                        <h2>Premium Plan</h2>
+                        <p>Get all features, including priority support and server management.</p>
+                        <p class="price">$15/month</p>
+                        <button class="cool-button" onclick="selectPlan('Premium')">Select Premium</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Premium Section -->
+            <div class="section" id="managePremium">
+                <h1>Manage Your Premium Benefits</h1>
+                <p>Upgrade, renew, or cancel your premium subscription as needed.</p>
+                <div class="action-buttons">
+                    <button class="cool-button premium-button" onclick="upgradeToVIP()">
+                        <span class="button-icon">⭐</span>
+                        <span class="button-text">Upgrade to VIP</span>
+                    </button>
+                    <button class="cool-button premium-button" onclick="cancelPremium()">
+                        <span class="button-icon">❌</span>
+                        <span class="button-text">Cancel Premium</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Manage Server Section -->
+            <div class="section" id="manageServer">
+                <h1>Server Management</h1>
+                <p>Here you can view and manage your servers. Only your owned servers are accessible.</p>
+                <div class="server-list">
+                    <div class="server">
+                        <h3>Your Servers</h3>
+                        <p>Wicks Gaming Hub</p>
+                        <p>Creative Minds</p>
+                    </div>
+                    <div class="server blur">
+                        <h3>Other Servers</h3>
+                        <p>Cool Community (Not accessible)</p>
+                        <p>Art Haven (Not accessible)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credits Store Section -->
+            <div class="section" id="creditsStore">
+                <h1>Purchase Credits</h1>
+                <p>Buy credits to unlock new features and exclusive content.</p>
+                <div class="credit-options">
+                    <button class="cool-button credit-button" onclick="buyCredits(100)">
+                        <span class="credit-amount">100</span>
+                        <span class="credit-icon">💎</span>
+                        <span class="credit-price">$10</span>
+                    </button>
+                    <button class="cool-button credit-button" onclick="buyCredits(500)">
+                        <span class="credit-amount">500</span>
+                        <span class="credit-icon">💎</span>
+                        <span class="credit-price">$45</span>
+                    </button>
+                    <button class="cool-button credit-button" onclick="buyCredits(1000)">
+                        <span class="credit-amount">1000</span>
+                        <span class="credit-icon">💎</span>
+                        <span class="credit-price">$85</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Leaderboard Section -->
+            <div class="section" id="leaderboard">
+                <h1>Leaderboard</h1>
+                <p>See your ranking among members and compete to be the best!</p>
+                <ol>
+                    <li>Player1 - 5000 pts</li>
+                    <li>Player2 - 4500 pts</li>
+                    <li>Player3 - 4000 pts</li>
+                    <li>ra.3e - 3800 pts</li>
+                    <li>Player5 - 3200 pts</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
